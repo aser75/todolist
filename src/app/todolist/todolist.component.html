@@ -1,0 +1,43 @@
+<div id="todolist">
+
+    <section>
+        <!--
+            Header
+        -->
+        <header>
+            <h1>Todos</h1>
+            <div>
+                <form>
+                    <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel">
+                </form>
+            </div>
+        </header>
+        <!--
+            Fin Header
+        -->
+
+        <!--
+            Zone Test
+        -->
+        {{model.name}}
+        <!--
+            Fin Zone Test
+        -->
+
+        <!--
+            List item todolist
+        -->
+        <div id="list">
+
+            <ul *ngFor="let item of items | async">
+                <li>{{item.description}}</li>
+            </ul>
+
+        </div>
+        <!--
+            Fin list item todolist
+        -->
+
+    </section>
+
+</div>
