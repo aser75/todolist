@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Liste } from '../interface/liste';
-import {
-   AngularFirestore,
-   AngularFirestoreDocument,
-   AngularFirestoreCollection  } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
+/*
+* Interface
+*/
+import { Liste } from '../interface/liste';
+
+/*
+* Module
+*/
+import {
+         AngularFirestore,
+         AngularFirestoreCollection  } from '@angular/fire/firestore';
 
 @Injectable({
    providedIn: 'root'
@@ -13,26 +19,28 @@ import { Observable } from 'rxjs';
 
 export class FirebaseService {
 
+
    // @var
    collectionRef: AngularFirestoreCollection<Liste>;
-   getTodo: Observable<Liste[]>
-   // Fin @var
-
+   getTodo: Observable<Liste[]>;
 
    constructor(private db: AngularFirestore)
    {
       this.collectionRef = this.db.collection('todo');
    }
 
+   // Function obtenir les items de la collection todo
    getItems(): Observable<Liste[]>
    {
       this.getTodo = this.collectionRef.valueChanges();
       return this.getTodo;
    }
 
-   addItems()
+   // Function ajout d'item à la collection todo
+   addItems():void
    {
       this.collectionRef.add({ description: "items 3 push", completer: false })
    }
+
 
 }

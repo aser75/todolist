@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+
+/*
+* Service
+*/
 import { FirebaseService } from '../service/firebase.service';
 
+/*
+* Interface
+*/
 import { Liste } from '../interface/liste';
 
 @Component({
@@ -12,12 +19,12 @@ import { Liste } from '../interface/liste';
 
 export class TodolistComponent implements OnInit {
 
+
    // @var
    model: any;
    items: Observable<Liste[]>;
-   // Fin @var
 
-   constructor( private firebaseService: FirebaseService)
+   constructor( private firebaseService: FirebaseService )
    {
       this.model =
       {
@@ -30,14 +37,17 @@ export class TodolistComponent implements OnInit {
       this.items = this.getFirebase();
    }
 
+   // function obtenir la collection todo via le service
    getFirebase(): Observable<Liste[]>
    {
       return this.firebaseService.getItems();
    }
 
+   // function add item sur la collection todo via le service
    addItem(): void
    {
       this.firebaseService.addItems();
    }
+
 
 }

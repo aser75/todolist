@@ -8,13 +8,14 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
 
+
     // @var
     title: string;
-    // Fin @var
 
     constructor()
     {
         this.title = "My todolist";
     }
+    
 
 }
