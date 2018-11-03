@@ -1,1 +1,1 @@
-export interface Liste { sdfdson: boolean; fait: boolean }
+export interface Liste { description: boolean; fait: boolean }
