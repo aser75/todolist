@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument  } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 
@@ -10,17 +10,17 @@ import { Observable } from 'rxjs';
 export class FirebaseService {
 
    // @var
-   items: Observable<any[]>;
-   db: any;
+   private customer: Observable<any>
    // Fin @var
 
 
-   constructor(db: AngularFirestore)
+   constructor(private db: AngularFirestore)
    {}
 
-   getItems()
+   getItems(): Observable<any>
    {
-      this.items = this.db.collection('todo').valueChanges();
+      this.customer = this.db.collection('todo').valueChanges();
+      return this.customer;
    }
 
 }
