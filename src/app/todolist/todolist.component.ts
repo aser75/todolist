@@ -35,4 +35,9 @@ export class TodolistComponent implements OnInit {
       return this.firebaseService.getItems();
    }
 
+   addItem(): void
+   {
+      this.firebaseService.addItems();
+   }
+
 }

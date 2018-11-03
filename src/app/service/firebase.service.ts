@@ -30,5 +30,9 @@ export class FirebaseService {
       return this.getTodo;
    }
 
+   addItems()
+   {
+      this.collectionRef.add({ description: "items 3 push", completer: false })
+   }
 
 }
