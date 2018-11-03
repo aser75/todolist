@@ -4,8 +4,6 @@ import { FirebaseService } from '../service/firebase.service';
 
 import { Liste } from '../interface/liste';
 
-
-
 @Component({
    selector: 'app-todolist',
    templateUrl: './todolist.component.html',
@@ -16,7 +14,7 @@ export class TodolistComponent implements OnInit {
 
    // @var
    model: any;
-   shares: Observable<Liste[]>;
+   items: Observable<Liste[]>;
    // Fin @var
 
    constructor( private firebaseService: FirebaseService)
@@ -29,7 +27,7 @@ export class TodolistComponent implements OnInit {
 
    ngOnInit()
    {
-      this.shares = this.getFirebase();
+      this.items = this.getFirebase();
    }
 
    getFirebase(): Observable<Liste[]>
