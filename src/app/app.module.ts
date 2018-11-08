@@ -31,7 +31,7 @@ import { FirebaseService } from './service/firebase.service';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
   ],
   providers: [FirebaseService],
   bootstrap: [AppComponent]

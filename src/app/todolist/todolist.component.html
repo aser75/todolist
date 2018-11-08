@@ -1,7 +1,7 @@
 <div id="todolist">
 
     <section>
-      
+
         <!--
             Header
         -->
@@ -9,7 +9,8 @@
             <h1>Todos</h1>
             <div>
                 <form>
-                    <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name" #name="ngModel">
+                    <input #newItem type="text" class="form-control" id="name" required  name="name">
+                    <button (click)="addItem(newItem.value)">Ajouter</button>
                 </form>
             </div>
         </header>
@@ -21,8 +22,6 @@
             Zone Test
         -->
         <h2>Zone de test</h2>
-        <button (click)="addItem()">Add item</button>
-        {{model.name}}
         <!--
             Fin Zone Test
         -->
@@ -32,8 +31,26 @@
         -->
         <div id="list">
 
-            <ul *ngFor="let item of items | async">
-                <li>{{item.description}}</li>
+            <ul>
+                <li
+                *ngFor="let item of items | async; let i = index"
+                [ngClass]="{
+                  'show': selectedItem === 'item'+i,
+                  'hide': selectedItem !== 'item'+i
+                }">
+
+                   <div class="content" class="description">{{item.description}}</div>
+                   <div class="content" class="update">
+                      <input #updateItem type="text" class="form-control" id="name" name="name" value="{{item.description}}">
+                      <button (click)="updateItems( updateItem.value, item.key )">Valider</button>
+                   </div>
+
+                   <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+
+                   <div class="sup"       (click)="deleteItems(item.key)">Supprimez</div>
+                   <div class="modfifier" (click)="show(i)">modifiez</div>
+
+                </li>
             </ul>
 
         </div>

@@ -27,6 +27,7 @@ export class FirebaseService {
    constructor(private db: AngularFirestore)
    {
       this.collectionRef = this.db.collection('todo');
+
    }
 
    // Function obtenir les items de la collection todo
@@ -37,10 +38,23 @@ export class FirebaseService {
    }
 
    // Function ajout d'item à la collection todo
-   addItems():void
+   addItems(valeur:string): void
    {
-      this.collectionRef.add({ description: "items 3 push", completer: false })
+      const id       = this.db.createId();
+      const project  = { key: id,description: valeur, completer: false };
+      this.collectionRef.doc(id).set(project);
+      //this.collectionRef.add({ key: id, description: valeur, completer: false })
    }
 
+   // Function suppression d'un item à la collection todo
+   deleteItems(key:string): void
+   {
+      this.collectionRef.doc(key).delete();
+   }
 
+   // Function Update d'un item à la collection todo
+   updateItems(updateDesc:string, key:string): void
+   {
+      this.collectionRef.doc(key).update({description:updateDesc});
+   }
 }
