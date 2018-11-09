@@ -8,9 +8,15 @@
         <header>
             <h1>Todos</h1>
             <div>
+
                 <form>
-                    <input #newItem type="text" class="form-control" id="name" required  name="name" (keyup.enter)="addItem(newItem.value)">
-                </form>
+
+                  <mat-form-field class="example-full-width">
+                     <input matInput #newItem type="text" class="form-control"  required  (keyup.enter)="addItem(newItem.value)">
+                  </mat-form-field>
+
+               </form>
+
             </div>
         </header>
         <!--
@@ -33,8 +39,10 @@
                    <div class="content" class="description">{{item.description}}</div>
 
                    <div class="content" class="update">
-                      <input #updateItem type="text" class="form-control" id="name" name="name" value="{{item.description}}">
-                      <button (click)="updateItems( updateItem.value, item.key )">Valider</button>
+
+                     <form>
+                      <input #updateItem type="text" class="form-control" id="update{{i}}" name="update{{i}}" value="{{item.description}}" (keyup.enter)="updateItems( updateItem.value, item.key )">
+                   </form>
                    </div>
 
                    <mat-checkbox class="example-margin" (change)="updateCompleted(item.completer, item.key)" [(ngModel)]="item.completer">Checked</mat-checkbox>
