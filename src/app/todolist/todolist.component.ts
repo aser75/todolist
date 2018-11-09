@@ -25,6 +25,7 @@ export class TodolistComponent implements OnInit {
    @Input() item: Liste;
    selectedItem: string = "";
 
+
    constructor( private firebaseService: FirebaseService )
    {}
 
@@ -61,6 +62,11 @@ export class TodolistComponent implements OnInit {
    // function show input
    show(i:number): void {
       this.selectedItem = 'item'+i;
+   }
+
+   updateCompleted( completer, key ): void
+   {
+      this.firebaseService.updateCompleted(completer, key);
    }
 
 }

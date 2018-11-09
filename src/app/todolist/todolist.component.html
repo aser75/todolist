@@ -10,7 +10,6 @@
             <div>
                 <form>
                     <input #newItem type="text" class="form-control" id="name" required  name="name" (keyup.enter)="addItem(newItem.value)">
-
                 </form>
             </div>
         </header>
@@ -32,12 +31,13 @@
                 }">
 
                    <div class="content" class="description">{{item.description}}</div>
+
                    <div class="content" class="update">
                       <input #updateItem type="text" class="form-control" id="name" name="name" value="{{item.description}}">
                       <button (click)="updateItems( updateItem.value, item.key )">Valider</button>
                    </div>
 
-                   <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
+                   <mat-checkbox class="example-margin" (change)="updateCompleted(item.completer, item.key)" [(ngModel)]="item.completer">Checked</mat-checkbox>
 
                    <div class="sup"       (click)="deleteItems(item.key)">Supprimez</div>
                    <div class="modfifier" (click)="show(i)">modifiez</div>
