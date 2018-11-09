@@ -9,8 +9,8 @@
             <h1>Todos</h1>
             <div>
                 <form>
-                    <input #newItem type="text" class="form-control" id="name" required  name="name">
-                    <button (click)="addItem(newItem.value)">Ajouter</button>
+                    <input #newItem type="text" class="form-control" id="name" required  name="name" (keyup.enter)="addItem(newItem.value)">
+
                 </form>
             </div>
         </header>

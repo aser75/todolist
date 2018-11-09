@@ -18,6 +18,9 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 import { FirebaseService } from './service/firebase.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -27,9 +30,11 @@ import { FirebaseService } from './service/firebase.service';
   imports: [
     BrowserModule,
     FormsModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    MatButtonModule, MatCheckboxModule,
     AngularFireDatabaseModule,
     AngularFireStorageModule,
   ],
