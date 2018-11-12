@@ -26,7 +26,7 @@ export class FirebaseService {
 
    constructor(private db: AngularFirestore)
    {
-      this.collectionRef = this.db.collection('todo');
+      this.collectionRef = this.db.collection('todo', ref => ref.orderBy('description', "asc"));
 
    }
 
