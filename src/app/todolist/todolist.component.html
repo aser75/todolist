@@ -1,63 +1,76 @@
 <div id="todolist">
 
-    <section>
+   <section>
 
-        <!--
-            Header
-        -->
-        <header>
-            <h1>Todos</h1>
-            <div>
-                <form>
-                    <input #newItem type="text" class="form-control" id="name" required  name="name" (keyup.enter)="addItem(newItem.value)">
+   <!--
+      Header
+   -->
+   <header id="header">
 
-                </form>
+      <h2 class="header_title">List Tasks</h2>
+
+      <div>
+         <form>
+
+            <mat-form-field class="example-full-width">
+               <input matInput #newItem type="text" class="form-control" required (keyup.enter)="addItem(newItem.value)" placeholder="Votre tache">
+            </mat-form-field>
+
+         </form>
+
+      </div>
+   </header>
+   <!--
+      Fin Header
+   -->
+
+   <section id="filtre">
+
+      <form>
+         <button type="button" name="completed">Task completed</button>
+         <button type="button" name="nocompleted">No completed</button>
+         <button type="button" name="nocompleted">All tasks</button>
+      </form>
+
+   </section>
+
+   <!--
+      List item todolist
+   -->
+   <div id="list">
+      <ul class="items">
+         <li
+            *ngFor="let item of items | async; let i = index"
+            [ngClass]="{
+               'show': selectedItem === 'item'+i,
+               'hide': selectedItem !== 'item'+i,
+               'completed': item.completer}
+               "
+            class="item">
+
+            <mat-checkbox class="check-completed" (change)="updateCompleted(item.completer, item.key)" [(ngModel)]="item.completer"></mat-checkbox>
+
+            <div class="content description" (dblclick)="show(i)">
+               <span>{{item.description}}</span>
             </div>
-        </header>
-        <!--
-            Fin Header
-        -->
 
-        <!--
-            Zone Test
-        -->
-        <h2>Zone de test</h2>
-        <!--
-            Fin Zone Test
-        -->
+            <div class="content update">
+               <form>
+                  <mat-form-field class="example-full-width">
+                     <input matInput #updateItem type="text" class="form-control" id="update{{i}}" name="update{{i}}" value="{{item.description}}" (keyup.enter)="updateItems( updateItem.value, item.key )">
+                  </mat-form-field>
+               </form>
+            </div>
 
-        <!--
-            List item todolist
-        -->
-        <div id="list">
+            <button class="sup" (click)="deleteItems(item.key)"></button>
 
-            <ul>
-                <li
-                *ngFor="let item of items | async; let i = index"
-                [ngClass]="{
-                  'show': selectedItem === 'item'+i,
-                  'hide': selectedItem !== 'item'+i
-                }">
+         </li>
+      </ul>
+   </div>
 
-                   <div class="content" class="description">{{item.description}}</div>
-                   <div class="content" class="update">
-                      <input #updateItem type="text" class="form-control" id="name" name="name" value="{{item.description}}">
-                      <button (click)="updateItems( updateItem.value, item.key )">Valider</button>
-                   </div>
+   <!--
+      Fin list item todolist
+   -->
 
-                   <button class="btn btn-success btn-xs"><i class=" fa fa-check"></i></button>
-
-                   <div class="sup"       (click)="deleteItems(item.key)">Supprimez</div>
-                   <div class="modfifier" (click)="show(i)">modifiez</div>
-
-                </li>
-            </ul>
-
-        </div>
-        <!--
-            Fin list item todolist
-        -->
-
-    </section>
-
+   </section>
 </div>

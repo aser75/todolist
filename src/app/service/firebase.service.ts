@@ -57,4 +57,10 @@ export class FirebaseService {
    {
       this.collectionRef.doc(key).update({description:updateDesc});
    }
+
+   // Function Update completed d'un item à la collection todo
+   updateCompleted(updateComp:boolean, key:string):  void
+   {
+      this.collectionRef.doc(key).update({completer:updateComp});
+   }
 }

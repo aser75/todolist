@@ -14,8 +14,8 @@ export class AppComponent {
 
     constructor()
     {
-        this.title = "My todolist";
+        this.title = "Angular - Firebase";
     }
-    
+
 
 }
