@@ -41,30 +41,31 @@ export class TodolistComponent implements OnInit {
    }
 
    // function add item sur la collection todo via le service
-   addItem(valeur:string): void
+   addItem( valeur:string ): void
    {
       this.firebaseService.addItems(valeur);
    }
 
    // function delete item sur la collection todo via le service
-   deleteItems(key:string): void
+   deleteItems( key:string ): void
    {
       this.firebaseService.deleteItems(key);
    }
 
    // function update item sur la collection todo via le service
-   updateItems(updateDesc:string, key:string): void
+   updateItems( updateDesc:string, key:string ): void
    {
       this.selectedItem = '';
       this.firebaseService.updateItems(updateDesc, key);
    }
 
    // function show input
-   show(i:number): void {
+   show( i:number ): void {
       this.selectedItem = 'item'+i;
    }
 
-   updateCompleted( completer, key ): void
+   // function update d'un item si completed
+   updateCompleted( completer:boolean, key:string ): void
    {
       this.firebaseService.updateCompleted(completer, key);
    }
