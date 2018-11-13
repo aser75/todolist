@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodolistComponent } from './todolist/todolist.component';
 import { LoginComponent } from './login/login.component';
-
+import { RegisterComponent } from './register/register.component';
 
 /*
 * Module
@@ -25,11 +25,13 @@ import { MatButtonModule, MatCheckboxModule, MatInputModule } from '@angular/mat
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     TodolistComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
