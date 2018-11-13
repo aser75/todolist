@@ -70,4 +70,9 @@ export class TodolistComponent implements OnInit {
       this.firebaseService.updateCompleted(completer, key);
    }
 
+   filterCompleted( type: boolean): void
+   {
+      this.firebaseService.filterType(type);
+   }
+
 }
