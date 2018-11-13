@@ -70,9 +70,10 @@ export class TodolistComponent implements OnInit {
       this.firebaseService.updateCompleted(completer, key);
    }
 
-   filterCompleted( type: boolean): void
+   filterCompleted( type: boolean|null): Observable<Liste[]>
    {
-      this.firebaseService.filterType(type);
+      this.items = this.firebaseService.filterType(type);
+      return this.items;
    }
 
 }

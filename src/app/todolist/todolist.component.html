@@ -26,9 +26,9 @@
 
    <section id="filtre">
       <form>
-         <button type="button" name="completed" (click)="filterCompleted(true)">Task completed</button>
-         <button type="button" name="nocompleted" (click)="filterCompleted(false)">No completed</button>
-         <button type="button" name="nocompleted">All tasks</button>
+         <button type="button" name="completed" (click)="filterCompleted(true)" mat-raised-button>Task completed</button>
+         <button type="button" name="nocompleted" (click)="filterCompleted(false)" mat-raised-button>No completed</button>
+         <button type="button" name="all" (click)="filterCompleted(null)" mat-raised-button>All tasks</button>
       </form>
    </section>
 
