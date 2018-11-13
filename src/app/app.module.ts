@@ -13,17 +13,17 @@ import { RegisterComponent } from './register/register.component';
 /*
 * Module
 */
-import { FormsModule } from '@angular/forms';
+import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import {  AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { FirebaseService } from './service/firebase.service';
+import { AuthService } from './service/auth.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatInputModule } from '@angular/material';
-
-
 
 
 @NgModule({
@@ -36,15 +36,17 @@ import { MatButtonModule, MatCheckboxModule, MatInputModule } from '@angular/mat
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+     AngularFireAuthModule,
     MatButtonModule, MatCheckboxModule, MatInputModule,
     AngularFireDatabaseModule,
     AngularFireStorageModule,
   ],
-  providers: [FirebaseService],
+  providers: [FirebaseService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
