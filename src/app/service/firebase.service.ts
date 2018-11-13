@@ -22,19 +22,20 @@ export class FirebaseService {
 
    // @var
    collectionRef: AngularFirestoreCollection<Liste>;
-   getTodo: Observable<Liste[]>;
+   getTodo$: Observable<Liste[]>;
 
    constructor(private db: AngularFirestore)
    {
-      this.collectionRef = this.db.collection('todo');
 
    }
 
    // Function obtenir les items de la collection todo
    getItems(): Observable<Liste[]>
    {
-      this.getTodo = this.collectionRef.valueChanges();
-      return this.getTodo;
+      this.collectionRef = this.db.collection('todo');
+      this.getTodo$ = this.collectionRef.valueChanges();
+      console.log(this.getTodo$);
+      return this.getTodo$;
    }
 
    // Function ajout d'item à la collection todo
@@ -62,5 +63,22 @@ export class FirebaseService {
    updateCompleted(updateComp:boolean, key:string):  void
    {
       this.collectionRef.doc(key).update({completer:updateComp});
+   }
+
+   //
+   // Filter
+   //
+   filterType(type:boolean|null)
+   {
+
+      if(type !== null) {
+         this.collectionRef = this.db.collection('todo',ref => ref.where('completer', '==', type));
+      } else {
+         this.collectionRef = this.db.collection('todo');
+      }
+
+      this.getTodo$ = this.collectionRef.valueChanges();
+      console.log(this.getTodo$);
+      return this.getTodo$;
    }
 }

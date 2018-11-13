@@ -7,13 +7,13 @@
    -->
    <header id="header">
 
-      <h2 class="header_title">List Tasks</h2>
+      <h2 class="header_title">Liste des tâches</h2>
 
       <div>
          <form>
 
             <mat-form-field class="example-full-width">
-               <input matInput #newItem type="text" class="form-control" required (keyup.enter)="addItem(newItem.value)" placeholder="Votre tache">
+               <input matInput #newItem type="text" class="form-control" required (keyup.enter)="addItem(newItem.value)" placeholder="Votre tâche">
             </mat-form-field>
 
          </form>
@@ -25,13 +25,11 @@
    -->
 
    <section id="filtre">
-
       <form>
-         <button type="button" name="completed">Task completed</button>
-         <button type="button" name="nocompleted">No completed</button>
-         <button type="button" name="nocompleted">All tasks</button>
+         <button type="button" name="all" (click)="filterCompleted(null)" mat-raised-button>All tasks</button>
+         <button type="button" name="completed" (click)="filterCompleted(true)" mat-raised-button>completed</button>
+         <button type="button" name="nocompleted" (click)="filterCompleted(false)" mat-raised-button>No completed</button>
       </form>
-
    </section>
 
    <!--
