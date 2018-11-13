@@ -2,6 +2,12 @@
      <h1 class="header_title">Todolist <br> {{ title }}!</h1>
 </div>
 
+<nav>
+  <a [routerLink]="['/list']">List</a>
+  <br>
+  <a [routerLink]="['/login']">login</a>
+</nav>
+
 <div>
-     <app-todolist></app-todolist>
+ <router-outlet></router-outlet>
 </div>

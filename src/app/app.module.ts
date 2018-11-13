@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 */
 import { AppComponent } from './app.component';
 import { TodolistComponent } from './todolist/todolist.component';
+import { LoginComponent } from './login/login.component';
+
 
 /*
 * Module
@@ -22,10 +24,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatInputModule } from '@angular/material';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    TodolistComponent
+    TodolistComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

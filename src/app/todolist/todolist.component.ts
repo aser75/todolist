@@ -19,7 +19,6 @@ import { Liste } from '../interface/liste';
 
 export class TodolistComponent implements OnInit {
 
-
    // @var
    items: Observable<Liste[]>;
    @Input() item: Liste;
