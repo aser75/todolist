@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from '../service/auth.service'
 
 @Component({
@@ -18,7 +19,13 @@ export class RegisterComponent implements OnInit {
    ngOnInit()
    {}
 
+   registerForm = new FormGroup({
+         email: new FormControl(''),
+         password: new FormControl(''),
+   });
+
    tryRegister(value){
+      console.log(value.email);
      this.authService.doRegister(value)
      .then(res => {
        console.log(res);
