@@ -1,1 +1,6 @@
-export interface Liste { key: string; description: string; completer: boolean }
+export interface Liste
+{
+   key: string;
+   description: string;
+   completer: boolean;
+}
