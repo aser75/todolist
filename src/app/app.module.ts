@@ -19,11 +19,12 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import {  AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { FirebaseService } from './service/firebase.service';
 import { AuthService } from './service/auth.service';
 import { GuardService } from './service/guard.service';
+import { NotificationService } from './service/notification.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatInputModule } from '@angular/material';
 
@@ -50,7 +51,7 @@ import { MatButtonModule, MatCheckboxModule, MatInputModule } from '@angular/mat
     AngularFireDatabaseModule,
     AngularFireStorageModule,
   ],
-  providers: [FirebaseService, AuthService, GuardService],
+  providers: [FirebaseService, AuthService, GuardService, NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
