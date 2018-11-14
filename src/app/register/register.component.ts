@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { AuthService } from '../service/auth.service'
+import { AuthService } from '../service/auth.service';
 
 @Component({
    selector: 'app-register',
@@ -9,7 +9,6 @@ import { AuthService } from '../service/auth.service'
    providers: [AuthService],
 })
 export class RegisterComponent implements OnInit {
-
 
    errorMessage: any;
    successMessage: any;
@@ -25,12 +24,11 @@ export class RegisterComponent implements OnInit {
    });
 
    tryRegister(value){
-      console.log(value.email);
      this.authService.doRegister(value)
      .then(res => {
-       console.log(res);
-       this.errorMessage = "";
-       this.successMessage = "Your account has been created";
+        console.log(res);
+        this.errorMessage = "";
+        this.successMessage = "Your account has been created";
      }, err => {
        console.log(err);
        this.errorMessage = err.message;
