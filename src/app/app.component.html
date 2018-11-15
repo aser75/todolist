@@ -1,21 +1,16 @@
 <div style="text-align:center">
    <h1 class="header_title">Todolist <br> {{ title }}!</h1>
-
-   <div id="notification">
-      <app-notification></app-notification>
-   </div>
 </div>
 
-<nav>
-   <a [routerLink]="['/list']">List</a>
-   <br>
-   <a [routerLink]="['/login']">login</a>
-   <br>
-   <a [routerLink]="['/register']">register</a>
-</nav>
+<div id="other">
+   <div id="notification"><app-notification></app-notification></div>
 
-<div>
-   <a (click)="logout()" href="#">Se deconnecter</a>
+   <nav id="navigation">
+      <button *ngIf="(authService.user$ | async)" [routerLink]="['/list']" type="button" mat-raised-button >List</button>
+      <button [routerLink]="['/login']" type="button" mat-raised-button *ngIf="!(authService.user$ | async)">login</button>
+      <button [routerLink]="['/register']" type="button" mat-raised-button *ngIf="!(authService.user$ | async)">S'enregister</button>
+      <button (click)="logout()" type="button" mat-raised-button *ngIf="(authService.user$ | async)">Se deconnecter</button>
+   </nav>
 </div>
 
 <div>

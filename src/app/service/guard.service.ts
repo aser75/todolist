@@ -32,8 +32,7 @@ export class GuardService {
          map(user => !!user),
          tap(loggedIn => {
            if (!loggedIn) {
-             console.log('access denied');
-             this.notificationService.update('You must be logged in!', 'error');
+             this.notificationService.update('Vous devez être connecter!', 'error');
              this.router.navigate(['/login']);
            }
          })

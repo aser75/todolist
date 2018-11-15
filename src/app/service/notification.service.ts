@@ -16,7 +16,6 @@ export class NotificationService {
 
    update(content: string, style: 'error' | 'info' | 'success')
    {
-      console.log("test");
       const msg: Msg = { content, style };
       this._msgSource.next(msg);
    }

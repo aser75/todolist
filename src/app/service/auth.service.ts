@@ -5,29 +5,27 @@ import { User } from '../interface/user';
 import * as firebase from 'firebase';
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import {
-  AngularFirestore,
-} from '@angular/fire/firestore';
 
 @Injectable({
    providedIn: 'root'
 })
+
 export class AuthService {
 
    user$: Observable< User | null | boolean>;
+   islog: any = false;
 
    constructor(
       private afAuth: AngularFireAuth,
       private notificationService: NotificationService,
-      private afs: AngularFirestore,
    ) {
       this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
          if (user) {
-            console.log("connecter " + user);
+            this.islog = true;
             return of(true);
          } else {
-            console.log("pas connecter " +user);
+            this.islog = false;
             return of(false);
          }
       })
@@ -57,6 +55,7 @@ export class AuthService {
       })
    }
 
+   // Se déconnecter
    logOut()
    {
       this.afAuth.auth.signOut();

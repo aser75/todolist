@@ -28,11 +28,9 @@ export class LoginComponent implements OnInit {
    {
       this.authService.doLogin( value )
       .then(res => {
-         console.log(res);
          this.errorMessage = "";
          this.successMessage = "A mettre commentaire";
       }, err => {
-         console.log(err);
          this.errorMessage = err.message;
          this.successMessage = "";
       })
