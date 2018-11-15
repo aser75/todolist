@@ -23,5 +23,20 @@ export class GuardService {
      private notificationService: NotificationService,
    ) { }
 
-
+   canActivate(
+       next: ActivatedRouteSnapshot,
+       state: RouterStateSnapshot
+     ): Observable<boolean> | Promise<boolean> | boolean {
+       return this.authService.user$.pipe(
+         take(1),
+         map(user => !!user),
+         tap(loggedIn => {
+           if (!loggedIn) {
+             console.log('access denied');
+             this.notificationService.update('You must be logged in!', 'error');
+             this.router.navigate(['/login']);
+           }
+         })
+       );
+     }
 }

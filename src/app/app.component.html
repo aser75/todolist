@@ -2,7 +2,7 @@
    <h1 class="header_title">Todolist <br> {{ title }}!</h1>
 
    <div id="notification">
-      <app-notification></app-notification>      
+      <app-notification></app-notification>
    </div>
 </div>
 
@@ -13,6 +13,10 @@
    <br>
    <a [routerLink]="['/register']">register</a>
 </nav>
+
+<div>
+   <a (click)="logout()" href="#">Se deconnecter</a>
+</div>
 
 <div>
  <router-outlet></router-outlet>
