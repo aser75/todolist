@@ -19,7 +19,6 @@ import { Liste } from '../interface/liste';
 
 export class TodolistComponent implements OnInit {
 
-
    // @var
    items: Observable<Liste[]>;
    @Input() item: Liste;
@@ -70,6 +69,7 @@ export class TodolistComponent implements OnInit {
       this.firebaseService.updateCompleted(completer, key);
    }
 
+   // Filter type
    filterCompleted( type: boolean|null): Observable<Liste[]>
    {
       this.items = this.firebaseService.filterType(type);

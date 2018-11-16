@@ -1,0 +1,29 @@
+<div id="todolist">
+
+   <section>
+      <form [formGroup]="loginForm">
+         <div class="form-group">
+            <label>Email
+               <input type="email" formControlName="email" class="form-control" required>
+            </label>
+         </div>
+         <div class="form-group">
+            <label>Password :
+               <input type="password" class="form-control" formControlName="password" required>
+            </label>
+            <label class="error">{{errorMessage}}</label>
+            <label class="success">{{successMessage}}</label>
+         </div>
+
+         <button
+            type="submit"
+            (click)="trySign(loginForm.value)"
+            class="btn btn-default"
+            [disabled]="!loginForm.valid"
+            mat-raised-button>
+               Se connecter
+         </button>
+      </form>
+   </section>
+
+</div>

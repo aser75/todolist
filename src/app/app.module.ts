@@ -7,38 +7,51 @@ import { AppRoutingModule } from './app-routing.module';
 */
 import { AppComponent } from './app.component';
 import { TodolistComponent } from './todolist/todolist.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { NotificationComponent } from './notification/notification.component';
 
 /*
 * Module
 */
-import { FormsModule } from '@angular/forms';
+import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { FirebaseService } from './service/firebase.service';
+import { AuthService } from './service/auth.service';
+import { GuardService } from './service/guard.service';
+import { NotificationService } from './service/notification.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatInputModule } from '@angular/material';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodolistComponent
+    TodolistComponent,
+    LoginComponent,
+    RegisterComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     MatButtonModule, MatCheckboxModule, MatInputModule,
     AngularFireDatabaseModule,
     AngularFireStorageModule,
   ],
-  providers: [FirebaseService],
+  providers: [FirebaseService, AuthService, GuardService, NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

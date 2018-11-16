@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './service/auth.service';
 
 @Component({
     selector: 'app-root',
@@ -9,13 +10,17 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
 
-    // @var
-    title: string;
+   // @var
+   title: string;
 
-    constructor()
-    {
-        this.title = "Angular - Firebase";
-    }
+   constructor( public authService: AuthService)
+   {
+      this.title = "Angular - Firebase";
+   }
 
+   logout(): void
+   {
+      this.authService.logOut();
+   }
 
 }

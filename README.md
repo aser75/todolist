@@ -1,6 +1,6 @@
 # Todolist
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.2.
+Test Angular 7 and Firebase - Todolist
 
 ## Development server
 
@@ -10,18 +10,21 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+### Installation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Lancer l'installation des dépendances
 
-## Running end-to-end tests
+```
+npm install
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Autheurs
 
-## Further help
+* **Maxence PUPPETTO** -
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+[aser](https://aserweb.fr) - Développeur Front-end Freelance - France
