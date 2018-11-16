@@ -5,6 +5,7 @@ import { User } from '../interface/user';
 import * as firebase from 'firebase';
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
    providedIn: 'root'
@@ -18,6 +19,7 @@ export class AuthService {
    constructor(
       private afAuth: AngularFireAuth,
       private notificationService: NotificationService,
+      private router: Router
    ) {
       this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
@@ -59,6 +61,7 @@ export class AuthService {
    logOut()
    {
       this.afAuth.auth.signOut();
+      this.router.navigate(['/login']);
    }
 
 
